@@ -11,7 +11,8 @@ const Editbook = () => {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get("http://localhost:3001/book/book/" + id)
+      //.get("http://localhost:3001/book/book/" + id)
+      .get("https://book-management-vsqt.vercel.app/book/book/" + id)
 
       .then((res) => {
         setname(res.data.name);
