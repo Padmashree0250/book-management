@@ -12,8 +12,9 @@ const Addbook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/book/add", { name, author, imageurl })
-
+      //.post("http://localhost:3001/book/add", { name, author, imageurl })
+      .post("https://book-management-vsqt.vercel.app/book/add", { name, author, imageurl })
+      
       .then((res) => {
         if (res.data.added) {
           navigate("/books");
