@@ -13,7 +13,8 @@ const Addstudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/student/register", { roll, username, password, grade })
+      //.post("http://localhost:3001/student/register", { roll, username, password, grade })
+      .post("https://book-management-vsqt.vercel.app/student/register", { roll, username, password, grade })
 
       .then((res) => {
         if(res.data.registered){
