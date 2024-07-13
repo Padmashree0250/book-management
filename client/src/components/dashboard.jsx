@@ -7,7 +7,8 @@ const Dashboard = () => {
   const [books, setBooks] = useState(0);
   useEffect(() => {
     axios
-      .get("http://localhost:3001/dashboard")
+      //.get("http://localhost:3001/dashboard")
+      .get("https://book-management-vsqt.vercel.app/dashboard")
       .then((res) => {
         if (res.data.ok) {
           setStudents(res.data.student);
