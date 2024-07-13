@@ -25,7 +25,12 @@ const Editbook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put("http://localhost:3001/book/book/" + id, {
+      // .put("http://localhost:3001/book/book/" + id, {
+      //   name,
+      //   author,
+      //   imageurl,
+      // })
+      .put("https://book-management-vsqt.vercel.app/book/book/" + id, {
         name,
         author,
         imageurl,
