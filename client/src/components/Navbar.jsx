@@ -31,9 +31,7 @@ const Navbar = ({ role }) => {
             Login
           </Link>
        
-          <Link to="/logout" className="navbar-link">
-            Logout
-          </Link>
+         
         
       </div>
     </nav>
