@@ -25,7 +25,7 @@ const Navbar = ({ role }) => {
             <Link to="/dashboard" className="navbar-link">
               Dashboard
             </Link>
-          </> )}
+        
       
           <Link to="/login" className="navbar-link">
             Login
