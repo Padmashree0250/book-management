@@ -39,7 +39,7 @@ function App() {
         <Route path="/login" element={<Login setRoleVar={setRole} />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/addstudent" element={<Addstudent />}></Route>
-        <Route path="/logout" element={<Logout setRole={setRole} />}></Route>
+        
         <Route path="/addbook" element={<Addbook />}></Route>
         <Route path="/book/:id" element={<Editbook />}></Route>
         <Route path="/delete/:id" element={<Deletebook />}></Route>
