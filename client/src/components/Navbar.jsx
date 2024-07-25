@@ -14,8 +14,8 @@ const Navbar = ({ role }) => {
         <Link to="/books" className="navbar-link">
           books
         </Link>
-        {role === "admin" && (
-          <>
+        
+          
             <Link to="/addbook" className="navbar-link">
               Add Book
             </Link>
@@ -25,17 +25,16 @@ const Navbar = ({ role }) => {
             <Link to="/dashboard" className="navbar-link">
               Dashboard
             </Link>
-          </>
-        )}
-        {role === "" ? (
+          </> )}
+      
           <Link to="/login" className="navbar-link">
             Login
           </Link>
-        ) : (
+       
           <Link to="/logout" className="navbar-link">
             Logout
           </Link>
-        )}
+        
       </div>
     </nav>
   );
