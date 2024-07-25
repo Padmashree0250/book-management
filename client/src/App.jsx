@@ -7,7 +7,6 @@ import Dashboard from "./components/dashboard";
 import Addstudent from "./components/addstudent";
 import { useEffect, useState } from "react";
 import Addbook from "./components/addbook";
-import Logout from "./components/logout";
 import axios from "axios";
 import Editbook from "./components/editbook";
 import Deletebook from "./components/delete";
