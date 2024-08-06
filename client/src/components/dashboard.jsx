@@ -53,32 +53,19 @@ const Dashboard = () => {
           theme={{
             header: {
               container: {
-                backgroundColor: "#ffffff", // White background for a clean look
+                backgroundColor: "#f4f4f4", // Light gray background
                 padding: "10px", // Padding around the header
-                borderBottom: "1px solid #e0e0e0" // Light gray border for separation
+                borderBottom: "1px solid #ccc" // Bottom border for separation
               },
               headertext: {
-                color: "#000000", // Black color for high contrast
+                color: "#333", // Dark text color
                 fontSize: "18px", // Font size for the header text
-                fontWeight: "bold" // Bold font weight for emphasis
+                fontWeight: "bold" // Bold font weight
               },
               markAllReadText: {
-                color: "#007bff", // Blue color for action text
-                cursor: "pointer" // Pointer cursor on hover for interactivity
+                color: "#007bff", // Blue color for the "mark all read" text
+                cursor: "pointer" // Pointer cursor on hover
               }
-            },
-            body: {
-              backgroundColor: "#f8f9fa", // Very light gray background for the body
-              color: "#333333", // Dark gray text for readability
-              fontSize: "14px", // Standard font size
-              borderRadius: "4px" // Slightly rounded corners
-            },
-            notification: {
-              backgroundColor: "#ffffff", // White background for notifications
-              borderColor: "#e0e0e0", // Border color to match the header
-              color: "#333333", // Text color
-              padding: "10px", // Padding for content spacing
-              marginBottom: "10px" // Space between notifications
             }
           }}
           pageSize={10} // Number of notifications per page
