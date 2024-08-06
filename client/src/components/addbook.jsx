@@ -1,67 +1,91 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../css/Login.css";
 
-const Addbook = () => {
-  const [name, setname] = useState("");
-  const [author, setauthor] = useState("");
-  const [imageurl, setimageurl] = useState("");
+const Addstudent = () => {
+  const [roll, setRoll] = useState("");
+  const [username, setUsername] = useState("");
+  const [grade, setGrade] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      //.post("http://localhost:3001/book/add", { name, author, imageurl })
-      .post("https://book-management-vsqt.vercel.app/book/add", { name, author, imageurl })
-      
-      .then((res) => {
-        if (res.data.added) {
-          navigate("/books");
-        } else {
-          console.log(res);
-        }
-      })
-      .catch((err) => console.log(err));
+
+    // Retrieve existing students from local storage
+    const existingStudents = JSON.parse(localStorage.getItem("students")) || [];
+
+    // Check if the roll number already exists
+    const rollExists = existingStudents.some(student => student.roll === roll);
+    if (rollExists) {
+      toast.error("Roll number already exists. Please use a different one.");
+      return;
+    }
+
+    // Add new student to local storage
+    const newStudent = { roll, username, grade, password };
+    const updatedStudents = [...existingStudents, newStudent];
+    localStorage.setItem("students", JSON.stringify(updatedStudents));
+
+    // Notify the user and navigate to dashboard
+    toast.success("Student registered successfully!");
+    setTimeout(() => {
+      navigate('/dashboard');
+    }, 2000); // Delay to allow the notification to appear
   };
 
   return (
     <div className="student-form-container">
       <form className="student-form" onSubmit={handleSubmit}>
-        <h2>Add book</h2>
+        <h2>Add Student</h2>
 
         <div className="form-group">
-          <label htmlFor="book">book name:</label>
+          <label htmlFor="roll">Roll No:</label>
           <input
             type="text"
-            id="book"
-            name="book"
-            onChange={(e) => setname(e.target.value)}
+            id="roll"
+            name="roll"
+            value={roll}
+            onChange={(e) => setRoll(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="author">author name:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
-            id="author"
-            name="author"
-            onChange={(e) => setauthor(e.target.value)}
+            id="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Image URL:</label>
+          <label htmlFor="grade">Grade:</label>
           <input
             type="text"
-            id="image"
-            name="image"
-            onChange={(e) => setimageurl(e.target.value)}
+            id="grade"
+            name="grade"
+            value={grade}
+            onChange={(e) => setGrade(e.target.value)}
           />
         </div>
-
-        <button type="submit">Add</button>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Register</button>
       </form>
+      <ToastContainer />
     </div>
   );
 };
 
-export default Addbook;
+export default Addstudent;
